@@ -99,6 +99,13 @@ function Favorite({ contact }) {
   );
 }
 
+/****************************************************************/
+/****************************************************************/
+/*****************CONTACT API************************************/
+/****************************************************************/
+/****************************************************************/
+/****************************************************************/
+
 export async function getContacts(query) {
   await fakeNetwork(`getContacts:${query}`);
   let contacts = await localforage.getItem("contacts");
@@ -165,6 +172,6 @@ async function fakeNetwork(key) {
 
   fakeCache[key] = true;
   return new Promise((res) => {
-    setTimeout(res, Math.random() * 800);
+    setTimeout(res, Math.random() * 100);
   });
 }
